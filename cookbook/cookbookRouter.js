@@ -1,17 +1,39 @@
 const express = require("express");
+const cookbook = require("./cookbookModel");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.status(200).json("Here's a list of recipies");
+router.get("/", (_req, res) => {
+  cookbook
+    .getAllRecipes()
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(error => {
+      res.status(500).json({ message: error.message });
+    });
 });
 
 router.get("/:id/shopping-list", (req, res) => {
-  res.status(200).json("Here's the shopping list");
+  cookbook
+    .getShoppingList(req.params.id)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(error => {
+      res.status(500).json({ message: error.message });
+    });
 });
 
 router.get("/:id/instructions", (req, res) => {
-  res.status(200).json("Here are the instructions");
+  cookbook
+    .getInstructions(req.params.id)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(error => {
+      res.status(500).json({ message: error.message });
+    });
 });
 
 module.exports = router;
