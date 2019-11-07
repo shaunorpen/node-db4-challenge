@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/shaunorpen/node-db4-challenge/issues"
   },
-  "homepage": "https://github.com/shaunorpen/node-db4-challenge#readme"
+  "homepage": "https://github.com/shaunorpen/node-db4-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0"
+  }
 }
