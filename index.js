@@ -4,7 +4,7 @@ const cookbookRouter = require("./cookbook/cookbookRouter");
 const server = express();
 
 server.use(express.json());
-server.use("/api/cookbook", cookbookRouter);
+server.use("/api", cookbookRouter);
 
 server.get("*", (req, res) => {
   res.status(200).json("API up and running");
